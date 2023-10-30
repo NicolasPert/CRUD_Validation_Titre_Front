@@ -1,27 +1,84 @@
-# CrudValidationTitre
+# Front Bébé Gourmet
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+## Etape 1 : lancer un nouveau projet angular :
+```bash
+ng new front_bb_gourmet
+```
 
-## Development server
+## Etape 2 : ajouter Bootstrap
+```bash
+npm install bootstrap
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### dans angular.jon
+```
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css"
+],
+"scripts": [
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+]
+```
 
-## Code scaffolding
+## Etape 3 : créer des pages et des composants
+```bash
+ng generate component xyz
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# config NgFor dans app.module.ts
+```
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+...
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+@NgModule({
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+  ],
 
-## Running unit tests
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Installation NgSelect, pour formulaire selectif d'ajout d'aliment: (https://ng-select.github.io/ng-select#/multiselect)
+```bash
+npm install --save @ng-select/ng-select
+```
 
-## Running end-to-end tests
+## Dans le app-module.ts, ajouter import:
+```
+import { NgSelectModule } from '@ng-select/ng-select'; 
+import { FormsModule } from '@angular/forms';
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+@NgModule({ 
+  declarations: [AppComponent], 
+  imports: [
+    NgSelectModule, 
+    FormsModule, 
+    ]
+  bootstrap: [AppComponent]
+   }) 
+  
+  export class AppModule {}
 
-## Further help
+```
+## Dans le angularjson, ajouter styles:
+```
+"styles": [
+          "node_modules/@ng-select/ng-select/themes/default.theme.css",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "src/styles.css"
+       ],
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# BACKEND :
+Dispo sur Github
+- API : https://github.com/Didof69/BebeGourmet_FilRouge_API_STLNG
+- BDD : https://github.com/Didof69/BebeGourmet_FilRouge_BDD_STLNG
