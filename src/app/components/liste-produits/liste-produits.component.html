@@ -1,0 +1,44 @@
+<div class="container">
+  <div *ngIf="utilisateur">
+    <button class="btn btn-primary" [routerLink]="['/page-admin/add-products']">
+      ajouter produit
+    </button>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prix</th>
+          <th>Quantité</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produit of products">
+          <td data-title="Nom">{{ produit.nom }}</td>
+          <td data-title="Prix">{{ produit.prix }}</td>
+          <td data-title="Quantité">{{ produit.quantity }}</td>
+          <td data-title="Action">
+            <button
+              class="btn btn-primary"
+              *ngIf="utilisateur"
+              [routerLink]="['/page-admin/change-products', produit.id]"
+            >
+              Edit
+            </button>
+            <button
+              class="btn btn-danger"
+              *ngIf="utilisateur"
+              [routerLink]="['/page-admin/erase-products', produit.id]"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--  -->

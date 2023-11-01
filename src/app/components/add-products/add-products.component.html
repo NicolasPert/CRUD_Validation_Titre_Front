@@ -1,0 +1,45 @@
+<div class="container justify-content-center">
+  <div class="card row align-self-center">
+    <form (ngSubmit)="onSubmitForm()" [formGroup]="userForm">
+      <div class="form-group mb-3 align-text-center">
+        <input
+          id="nom"
+          name="nom"
+          formControlName="nom"
+          type="text"
+          placeholder="nom"
+          class="justify-content-end"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <input
+          id="prix"
+          name="prix"
+          formControlName="prix"
+          type="text"
+          placeholder="prix"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <input
+          id="quantité"
+          name="quantité"
+          formControlName="quantity"
+          type="text"
+          placeholder="quantité"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="categorie">Categorie</label>
+        <select id="categorie" name="categorie" formControlName="categorie">
+          <option *ngFor="let type of categorie" [value]="type.id">
+            {{ type.nom }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </div>
+    </form>
+  </div>
+</div>
