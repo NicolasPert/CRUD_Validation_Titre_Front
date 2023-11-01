@@ -1,13 +1,20 @@
-<div class="d-flex justify-content-end">
-    <form (ngSubmit)="onSubmitForm()" [formGroup]="userForm">
+<div class="d-flex">
+    <form (ngSubmit)="onSubmitForm()" [formGroup]="userForm" class="d-flex">
+      <div>
   <label for=""
     >nom
     <input id="nom" name="nom" formControlName="nom" type="text" class="justify-content-end"/>
   </label>
+  </div>
+  <div>
   <label for=""
     >password
     <input id="password" name="password" formControlName="password" type="password" />
   </label>
+  </div>
+  <div>
   <button type="submit" class="btn btn-primary">Connexion</button>
+      <button class="btn btn-danger" (click)="deconnexion()">Déconnexion</button>
+  </div>
   </form>
 </div>

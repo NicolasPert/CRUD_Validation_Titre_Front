@@ -23,15 +23,22 @@ export class ConnexionComponent {
     this.isFormValidate = true;
 
     if (this.userForm.value) {
-      this.utilisateurService.connexionUtilisateur(this.userForm.value).subscribe({
-        next: (response) => {
-          sessionStorage.setItem('token', response.accessToken);
-          location.reload(); //recharge la page actuelle
-        },
-        error: (error) => {
-          this.connexionKO = true;
-        },
-      });
+      this.utilisateurService
+        .connexionUtilisateur(this.userForm.value)
+        .subscribe({
+          next: (response) => {
+            sessionStorage.setItem('token', response.accessToken);
+            location.reload(); //recharge la page actuelle
+          },
+          error: (error) => {
+            this.connexionKO = true;
+          },
+        });
     }
+  }
+
+  deconnexion() {
+    sessionStorage.clear();
+    location.reload();
   }
 }
